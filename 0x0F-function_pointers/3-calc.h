@@ -1,61 +1,27 @@
-#include "3-calc.h"
+#ifndef CALC_H
+#define CALC_H
+
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * op_add - adds 2 int
- * @a: int
- * @b: int
- * Return: sum
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
  */
-
-int op_add(int a, int b)
+typedef struct op
 {
-	return (a + b);
-}
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
 
-/**
- * op_sub - subtracts 2 int
- * @a: int
- * @b: int
- * Return: difference
- */
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
 
-int op_sub(int a, int b)
-{
-	return (a - b);
-}
+int (*get_op_func(char *s))(int, int);
 
-/**
- * op_mul - multiplies 2 int
- * @a: int
- * @b: int
- * Return: product
- */
-
-int op_mul(int a, int b)
-{
-	return (a * b);
-}
-
-/**
- * op_div - divides 2 int
- * @a: int
- * @b: int
- * Return: the result
- */
-
-int op_div(int a, int b)
-{
-	return (a / b);
-}
-
-/**
- * op_mod - modulo 2 int
- * @a: int
- * @b: int
- * Return: the remainder
- */
-
-int op_mod(int a, int b)
-{
-	return (a % b);
-}
+#endif}
